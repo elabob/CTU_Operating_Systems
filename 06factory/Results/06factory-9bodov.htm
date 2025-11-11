@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>BRUTE AE results</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<style>
+body {
+    padding: 8px;
+}
+
+[data-toggle="collapse"] .fas:before {
+  content: "\f13a";
+}
+
+[data-toggle="collapse"].collapsed .fas:before {
+  content: "\f138";
+}
+</style>
+</head><body>
+<h1>Multithreaded factory – evaluation results</h1>
+User: bobenade<br>
+Total score: <span style="color: red"><b>-9</b> / 12</span><br>
+Generated on: Fri Nov 14 22:01:26 CET 2025<br>
+AE version: Sun Nov 9 10:56:35 2025<br>
+Test summary: <a href='#test-1' class='badge badge-success'>1</a> <a href='#test-2' class='badge badge-success'>2</a> <a href='#test-3' class='badge badge-success'>3</a> <a href='#test-4' class='badge badge-success'>4</a> <a href='#test-5' class='badge badge-success'>5</a> <a href='#test-6' class='badge badge-success'>6</a> <a href='#test-7' class='badge badge-success'>7</a> <a href='#test-8' class='badge badge-success'>8</a> <a href='#test-9' class='badge badge-success'>9</a> <a href='#test-10' class='badge badge-success'>10</a> <a href='#test-11' class='badge badge-warning'>11</a> <a href='#test-12' class='badge badge-warning'>12</a> <a href='#test-13' class='badge badge-success'>13</a> <a href='#test-14' class='badge badge-warning'>14</a> <a href='#test-15' class='badge badge-warning'>15</a> <a href='#test-16' class='badge badge-warning'>16</a> <a href='#test-17' class='badge badge-warning'>17</a> <a href='#test-18' class='badge badge-warning'>18</a> <a href='#test-19' class='badge badge-warning'>19</a> <a href='#test-20' class='badge badge-warning'>20</a> <a href='#test-21' class='badge badge-warning'>21</a> <a href='#test-22' class='badge badge-warning'>22</a> <a href='#test-23' class='badge badge-warning'>23</a> <a href='#test-24' class='badge badge-warning'>24</a> <a href='#test-25' class='badge badge-warning'>25</a> <a href='#test-26' class='badge badge-warning'>26</a><br>
+<hr>
+<span style="color: red; font-weight: bold">Unacceptable solution due to too many (28) errors. The solution must get at least 0 points.</span><hr>
+<style>
+  table.factory-stdin { border: 1px solid gray; background-color: silver; }
+  table.factory-stdin thead { font-weight: bold; }
+  table.factory-stdin td { padding: 0 1ex 0 1ex; }
+</style>
+<p id=test-1><b>Test 1: Uploaded files check</b> <small>(mandatory)</small></p>
+<div style='color: green;'>OK</div>
+<p id=test-2><b>Test 2: Compilation</b> <small>(mandatory)</small></p>
+<p>Running: <code>make </code></p>
+<p>Running: <code>cp -f factory factory.asan</code></p>
+<div style='color: green;'>OK</div>
+<p id=test-3><b>Test 3: Compiler flags and warnings</b> <small>(mandatory)</small></p>
+<div style='color: green;'>OK</div>
+<p id=test-4><b>Test 4: Recompile factory</b> <small>(mandatory)</small></p>
+<p>Running: <code>make </code></p>
+<div style='color: green;'>OK</div>
+<p id=test-5><b>Test 5: Compile with thread sanitizer</b> <small>(mandatory)</small></p>
+<p>Running: <code>make clean </code></p>
+<p>Running: <code>make &apos;CC=gcc&apos; &apos;CXX=g++&apos; &apos;EXTRA_CFLAGS=-fno-omit-frame-pointer -fsanitize=thread -no-pie&apos; </code></p>
+<p>Running: <code>cp -f factory factory.tsan</code></p>
+<div style='color: green;'>OK</div>
+<p id=test-6><b>Test 6: Thread sanitized version is compiled with -g and -Wall</b> <small>(mandatory)</small></p>
+<div style='color: green;'>OK</div>
+<p id=test-7><b>Test 7: Compile without address sanitizer</b> <small>(mandatory)</small></p>
+<p>Running: <code>make &apos;EXTRA_CFLAGS=-fno-omit-frame-pointer -no-pie&apos; </code></p>
+<div style='color: green;'>OK</div>
+<p id=test-8><b>Test 8: No input</b> <small>(mandatory)</small></p>
+<p>Running: <code>./factory.asan </code></p>
+<div style='color: green;'>OK</div>
+<p id=test-9><b>Test 9: Invalid command</b> <small>(mandatory)</small></p>
+<p>Running: <code>./factory.asan </code></p>
+<div style='color: green;'>OK</div>
+<p id=test-10><b>Test 10: Long worker name</b> <small>(mandatory)</small></p>
+<p>Running: <code>./factory.asan </code></p>
+<div style='color: green;'>OK</div>
+<p id=test-11><b>Test 11: Invalid place</b> <small>(2 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-1'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-1' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>    10.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>    10.000000 </td><td> start Vasil vrtackaX </td></tr>
+<tr><td style='text-align:right;'>    10.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>    10.000000 </td><td> EOF </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-2'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-2' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Nora nuzky 1 A
+Nora goes home
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-3'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-3' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Invalid command: start
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-4'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-4' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora
+    0.000000 | ..
+   10.000000 | ..
+  100.000000 | ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div style='color: red;'>ERROR #1: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+<style>
+        table.diff {width: 100%; font-size:0.75em; font-family: monospace; border: 1px solid black;}
+        .diff_header {background-color:#e0e0e0}
+        td.diff_header {text-align:right}
+        .diff_next {background-color:#c0c0c0; display: none;}
+        .diff_add {background-color:#aaffaa}
+        .diff_chg {background-color:#ffff77}
+        .diff_sub {background-color:#ffaaaa}
+        table.diff td,th { padding: 0 0.5ex 0 0.5ex}
+</style>
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">1A</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;10.000000&nbsp;|&nbsp;<span class="diff_chg">1A</span></td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;10.000000&nbsp;|&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex</td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20Invalid%20place&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-11%29%20%28test-11%29'>GitLab</a>.</p>
+<p id=test-12><b>Test 12: Nůžky</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-5'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-5' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> EOF </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-6'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-6' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Nora nuzky 1 A
+Nora goes home
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-7'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-7' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-8'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-8' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora
+    0.000000 | ..
+  100.000000 | ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div style='color: red;'>ERROR #2: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">1A</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex</td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20N%C5%AF%C5%BEky&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-12%29%20%28test-12%29'>GitLab</a>.</p>
+<p id=test-13><b>Test 13: Šroubovák</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+<div style='color: green;'>OK</div>
+<p id=test-14><b>Test 14: Nůžky a vrtačka</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-9'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-9' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>   200.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>   200.000000 </td><td> EOF </td></tr>
+<tr><td style='text-align:right;'>   600.000000 </td><td> <span style='color: red; font-weight: bold'>!!!!!!! Deadlock detected at this time. !!!!!!!</span> </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-10'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-10' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Nora nuzky 1 A
+Nora goes home
+Vojta vrtacka 2 A
+Vojta vrtacka 1 B
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-11'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-11' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-12'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-12' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora
+    0.000000 | ..
+  100.000000 | 1A
+             |      Vojta
+  200.000000 | ex   ..
+  400.000000 | ex   2A
+  600.000000 | ex   1B
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-13'><i class='fas'></i> Thread status (backtrace):</a>
+<div id='ae-output-13' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Main thread waits at:
+  #0  0x7f1c1c47a668: _end at ??:0
+  #1  0x7f1c1c47ac9c: _end at ??:0
+  #2  0x7f1c1c47f774: _end at ??:0
+  #3  0x4014dd: main at 06factory.cpp:351
+  #4  0x7f1c1c414ca8: _end at ??:0
+  #5  0x7f1c1c414d65: _end at ??:0
+  #6  0x401581: _start at ??:0
+
+Nora exited
+
+Vojta waits at:
+  #0  0x7f1c1c47a668: _end at ??:0
+  #1  0x7f1c1c47ac9c: _end at ??:0
+  #2  0x7f1c1c47d158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f1c1c47db7b: _end at ??:0
+  #5  0x7f1c1c4fb5f0: _end at ??:0
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #3: Process didn&apos;t finish within timeout. Perhaps because of deadlock. For details see the thread status (backtrace) above.</div>
+<div style='color: red;'>ERROR #4: stdout without &apos;goes home&apos; does not match expected value</div>
+<div>Diff of expected and received stdout without &apos;goes home&apos;:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;2&nbsp;A</td><td class="diff_next"></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;2&nbsp;A</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;1&nbsp;B</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;1&nbsp;B</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">Nora&nbsp;nuzky&nbsp;2&nbsp;B</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+        </tbody>
+    </table></div>
+<div style='color: red;'>ERROR #5: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td></tr>
+            <tr><td class="diff_next" id="difflib_chg_to0__1"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">1A</span></td><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;<span class="diff_chg">..</span></td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;<span class="diff_chg">1A</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vojta</td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vojta</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;200.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;2A</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;400.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;1B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;600.000000&nbsp;|&nbsp;2B&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_8">8</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">7</span>00.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_chg">ex</span></td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">2</span>00.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_6">6</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;400.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_7">7</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;600.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;1B</span></td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20N%C5%AF%C5%BEky%20a%20vrta%C4%8Dka&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-14%29%20%28test-14%29'>GitLab</a>.</p>
+<p id=test-15><b>Test 15: Nůžky a vrtačka jde domů</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-14'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-14' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>    99.000000 </td><td> end Vojta </td></tr>
+<tr><td style='text-align:right;'>    99.000000 </td><td> EOF </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-15'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-15' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Vojta goes home
+Nora nuzky 1 A
+Nora goes home
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-16'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-16' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-17'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-17' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta
+    0.000000 | ..   ..
+   99.000000 | ..   ex
+  100.000000 | ex   ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div style='color: red;'>ERROR #6: stdout does not match expected value</div>
+<div>Diff of expected and received stdout:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__1"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap"><span class="diff_add">Vojta&nbsp;goes&nbsp;home</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">Vojta&nbsp;goes&nbsp;home</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">Nora&nbsp;goes&nbsp;home</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">Nora&nbsp;goes&nbsp;home</td></tr>
+        </tbody>
+    </table></div>
+<div style='color: red;'>ERROR #7: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|<span class="diff_sub">&nbsp;1A&nbsp;&nbsp;</span>&nbsp;..</td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;..<span class="diff_add">&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;99.000000&nbsp;|&nbsp;<span class="diff_chg">1A</span>&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;99.000000&nbsp;|&nbsp;<span class="diff_chg">..</span>&nbsp;&nbsp;&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex</td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20N%C5%AF%C5%BEky%20a%20vrta%C4%8Dka%20jde%20dom%C5%AF&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-15%29%20%28test-15%29'>GitLab</a>.</p>
+<p id=test-16><b>Test 16: Dvoje nůžky a jedny jdou domů</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-18'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-18' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>    50.000000 </td><td> end Nora </td></tr>
+<tr><td style='text-align:right;'>    50.000000 </td><td> start Nikol nuzky </td></tr>
+<tr><td style='text-align:right;'>    50.000000 </td><td> EOF </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-19'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-19' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Nora nuzky 1 A
+Nora goes home
+Nikol nuzky 1 A
+Nikol goes home
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-20'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-20' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-21'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-21' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora
+    0.000000 | ..
+             |      Nikol
+   50.000000 | ..   ..
+  100.000000 | ex   ..
+  150.000000 | ex   ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div style='color: red;'>ERROR #8: stdout does not match expected value</div>
+<div>Diff of expected and received stdout:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__1"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap"><span class="diff_add">Nora&nbsp;goes&nbsp;home</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">Nikol&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">Nikol&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">Nora&nbsp;goes&nbsp;home</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">Nikol&nbsp;goes&nbsp;home</td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap">Nikol&nbsp;goes&nbsp;home</td></tr>
+        </tbody>
+    </table></div>
+<div style='color: red;'>ERROR #9: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__1"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">1A</span></td><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nikol</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nikol</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;50.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;1A</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;50.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_chg">1A</span></td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap">&nbsp;&nbsp;150.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_6">6</td><td nowrap="nowrap">&nbsp;&nbsp;150.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex</td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20Dvoje%20n%C5%AF%C5%BEky%20a%20jedny%20jdou%20dom%C5%AF&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-16%29%20%28test-16%29'>GitLab</a>.</p>
+<p id=test-17><b>Test 17: Nůžky a vrtačka na chvíli</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-22'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-22' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>    50.000000 </td><td> remove vrtacka </td></tr>
+<tr><td style='text-align:right;'>    50.000000 </td><td> EOF </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-23'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-23' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Nora nuzky 1 A
+Nora goes home
+Vojta vrtacka 1 B
+Vojta vrtacka 2 A
+Vojta goes home
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-24'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-24' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-25'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-25' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta
+    0.000000 | ..   ..
+   50.000000 | ..   ..
+  100.000000 | ex   ..
+  200.000000 | ex   1B
+  400.000000 | ex   ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div style='color: red;'>ERROR #10: stdout without &apos;goes home&apos; does not match expected value</div>
+<div>Diff of expected and received stdout without &apos;goes home&apos;:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;1&nbsp;B</td><td class="diff_next"></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;1&nbsp;B</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">Nora&nbsp;nuzky&nbsp;2&nbsp;B</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap"><span class="diff_add">Vojta&nbsp;vrtacka&nbsp;2&nbsp;A</span></td></tr>
+        </tbody>
+    </table></div>
+<div style='color: red;'>ERROR #11: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;1B</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;50.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;1B</span></td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;50.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">1</span>00.000000&nbsp;|&nbsp;<span class="diff_chg">..</span>&nbsp;&nbsp;&nbsp;1B</td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">2</span>00.000000&nbsp;|&nbsp;<span class="diff_chg">ex</span>&nbsp;&nbsp;&nbsp;1B</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;200.000000&nbsp;|&nbsp;2B&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">3</span>00.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_6">6</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">4</span>00.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex</td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20N%C5%AF%C5%BEky%20a%20vrta%C4%8Dka%20na%20chv%C3%ADli&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-17%29%20%28test-17%29'>GitLab</a>.</p>
+<p id=test-18><b>Test 18: Nůžky a dvě vrtačky</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-26'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-26' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vasek vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> EOF </td></tr>
+<tr><td style='text-align:right;'>   400.000000 </td><td> <span style='color: red; font-weight: bold'>!!!!!!! Deadlock detected at this time. !!!!!!!</span> </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-27'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-27' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Vasek goes home
+Nora nuzky 1 A
+Nora goes home
+Vojta vrtacka 1 B
+Vojta vrtacka 2 A
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-28'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-28' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-29'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-29' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta Vasek
+    0.000000 | ..   ..    ex
+  100.000000 | ex   ..    ex
+  200.000000 | ex   1B    ex
+  400.000000 | ex   2A    ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-30'><i class='fas'></i> Thread status (backtrace):</a>
+<div id='ae-output-30' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Main thread waits at:
+  #0  0x7fdd083ce668: _end at ??:0
+  #1  0x7fdd083cec9c: _end at ??:0
+  #2  0x7fdd083d3774: _end at ??:0
+  #3  0x4014dd: main at 06factory.cpp:351
+  #4  0x7fdd08368ca8: _end at ??:0
+  #5  0x7fdd08368d65: _end at ??:0
+  #6  0x401581: _start at ??:0
+
+Nora exited
+
+Vojta waits at:
+  #0  0x7fdd083ce668: _end at ??:0
+  #1  0x7fdd083cec9c: _end at ??:0
+  #2  0x7fdd083d1158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7fdd083d1b7b: _end at ??:0
+  #5  0x7fdd0844f5f0: _end at ??:0
+
+Vasek exited
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #12: Process didn&apos;t finish within timeout. Perhaps because of deadlock. For details see the thread status (backtrace) above.</div>
+<div style='color: red;'>ERROR #13: stdout without &apos;goes home&apos; does not match expected value</div>
+<div>Diff of expected and received stdout without &apos;goes home&apos;:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;1&nbsp;B</td><td class="diff_next"></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">Vojta&nbsp;vrtacka&nbsp;1&nbsp;B</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">Va<span class="diff_sub">sek</span>&nbsp;vrtacka&nbsp;2&nbsp;A</td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">V<span class="diff_add">ojt</span>a&nbsp;vrtacka&nbsp;2&nbsp;A</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">Nora&nbsp;nuzky&nbsp;2&nbsp;B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+        </tbody>
+    </table></div>
+<div style='color: red;'>ERROR #14: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Vasek</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Vasek</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;1B&nbsp;&nbsp;&nbsp;&nbsp;..</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;1B&nbsp;&nbsp;&nbsp;&nbsp;2A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">2</span>00.000000&nbsp;|&nbsp;<span class="diff_chg">2B</span>&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">2A</span></td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">1</span>00.000000&nbsp;|&nbsp;<span class="diff_chg">ex</span>&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">ex</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">3</span>00.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex<span class="diff_sub">&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">2</span>00.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_add">1B&nbsp;&nbsp;&nbsp;&nbsp;</span>ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;400.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20N%C5%AF%C5%BEky%20a%20dv%C4%9B%20vrta%C4%8Dky&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-18%29%20%28test-18%29'>GitLab</a>.</p>
+<p id=test-19><b>Test 19: Výroba A</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-31'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-31' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Otakar ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Sofie svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Lucie lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Stepan sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Filip freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> EOF </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-32'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-32' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Vojta goes home
+Otakar goes home
+Sofie goes home
+Lucie goes home
+Stepan goes home
+Filip goes home
+Nora nuzky 1 A
+Nora goes home
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-33'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-33' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-34'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-34' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta Otakar Sofie Lucie Stepan Filip
+    0.000000 | ..   ex    ex     ex    ex    ex     ex
+  100.000000 | ex   ex    ex     ex    ex    ex     ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div style='color: red;'>ERROR #15: stdout without &apos;goes home&apos; does not match expected value</div>
+<div>Diff of expected and received stdout without &apos;goes home&apos;:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">Vojta&nbsp;vrtacka&nbsp;2&nbsp;A</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">Otakar&nbsp;ohybacka&nbsp;3&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">Sofie&nbsp;svarecka&nbsp;4&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">Vojta&nbsp;vrtacka&nbsp;5&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap"><span class="diff_sub">Lucie&nbsp;lakovna&nbsp;6&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap"><span class="diff_sub">done&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+        </tbody>
+    </table></div>
+<div style='color: red;'>ERROR #16: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;300.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;450.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;750.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">95</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">6A&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">&nbsp;&nbsp;</span>0.000000&nbsp;|<span class="diff_add">&nbsp;..&nbsp;&nbsp;</span>&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_8">8</td><td nowrap="nowrap">&nbsp;1<span class="diff_chg">35</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap"><span class="diff_add">&nbsp;</span>&nbsp;1<span class="diff_chg">0</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20V%C3%BDroba%20A&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-19%29%20%28test-19%29'>GitLab</a>.</p>
+<p id=test-20><b>Test 20: Výroba A - chybné příkazy</b> <small>(2 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-35'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-35' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> startChyba vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Otakar ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Sofie svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Lucie lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Stepan sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Filip freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> addvrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> endOtakar </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> makeB </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td>  make C B </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> EOF </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-36'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-36' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Vojta goes home
+Otakar goes home
+Sofie goes home
+Lucie goes home
+Stepan goes home
+Filip goes home
+Nora nuzky 1 A
+Nora goes home
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-37'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-37' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Invalid command: startChyba
+Invalid command: addvrtacka
+Invalid command: endOtakar
+Invalid command: makeB
+Invalid command:  make
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-38'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-38' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta Otakar Sofie Lucie Stepan Filip
+    0.000000 | ..   ex    ex     ex    ex    ex     ex
+  100.000000 | ex   ex    ex     ex    ex    ex     ex
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div style='color: red;'>ERROR #17: stdout without &apos;goes home&apos; does not match expected value</div>
+<div>Diff of expected and received stdout without &apos;goes home&apos;:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">Nora&nbsp;nuzky&nbsp;1&nbsp;A</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">Vojta&nbsp;vrtacka&nbsp;2&nbsp;A</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">Otakar&nbsp;ohybacka&nbsp;3&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">Sofie&nbsp;svarecka&nbsp;4&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">Vojta&nbsp;vrtacka&nbsp;5&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap"><span class="diff_sub">Lucie&nbsp;lakovna&nbsp;6&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap"><span class="diff_sub">done&nbsp;A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+        </tbody>
+    </table></div>
+<div style='color: red;'>ERROR #18: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;300.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;450.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;750.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">95</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">6A&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;<span class="diff_chg">&nbsp;&nbsp;</span>0.000000&nbsp;|<span class="diff_add">&nbsp;..&nbsp;&nbsp;</span>&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_8">8</td><td nowrap="nowrap">&nbsp;1<span class="diff_chg">35</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap"><span class="diff_add">&nbsp;</span>&nbsp;1<span class="diff_chg">0</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20V%C3%BDroba%20A%20-%20chybn%C3%A9%20p%C5%99%C3%ADkazy&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-20%29%20%28test-20%29'>GitLab</a>.</p>
+<p id=test-21><b>Test 21: Současná výroba A, B a C</b> <small>(2 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-39'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-39' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Otakar ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Sofie svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Lucie lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Stepan sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Filip freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make C </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> EOF </td></tr>
+<tr><td style='text-align:right;'>   700.000000 </td><td> <span style='color: red; font-weight: bold'>!!!!!!! Deadlock detected at this time. !!!!!!!</span> </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-40'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-40' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Otakar goes home
+Sofie goes home
+Lucie goes home
+Stepan goes home
+Nora nuzky 1 A
+Nora goes home
+Vojta vrtacka 1 B
+Vojta vrtacka 2 A
+Filip freza 1 C
+Vojta vrtacka 2 C
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-41'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-41' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-42'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-42' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta Otakar Sofie Lucie Stepan Filip
+    0.000000 | ..   ..    ex     ex    ex    ex     ..
+  100.000000 | ex   ..    ex     ex    ex    ex     ..
+  200.000000 | ex   1B    ex     ex    ex    ex     ..
+  400.000000 | ex   2A    ex     ex    ex    ex     ..
+  500.000000 | ex   2A    ex     ex    ex    ex     1C
+  700.000000 | ex   2C    ex     ex    ex    ex     1C
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-43'><i class='fas'></i> Thread status (backtrace):</a>
+<div id='ae-output-43' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Main thread waits at:
+  #0  0x7f6e993f6668: _end at ??:0
+  #1  0x7f6e993f6c9c: _end at ??:0
+  #2  0x7f6e993fb774: _end at ??:0
+  #3  0x4014dd: main at 06factory.cpp:351
+  #4  0x7f6e99390ca8: _end at ??:0
+  #5  0x7f6e99390d65: _end at ??:0
+  #6  0x401581: _start at ??:0
+
+Nora exited
+
+Vojta waits at:
+  #0  0x7f6e993f6668: _end at ??:0
+  #1  0x7f6e993f6c9c: _end at ??:0
+  #2  0x7f6e993f9158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f6e993f9b7b: _end at ??:0
+  #5  0x7f6e994775f0: _end at ??:0
+
+Otakar exited
+
+Sofie exited
+
+Lucie exited
+
+Stepan exited
+
+Filip waits at:
+  #0  0x7f6e993f6668: _end at ??:0
+  #1  0x7f6e993f6c9c: _end at ??:0
+  #2  0x7f6e993f9158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f6e993f9b7b: _end at ??:0
+  #5  0x7f6e994775f0: _end at ??:0
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #19: Process didn&apos;t finish within timeout. Perhaps because of deadlock. For details see the thread status (backtrace) above.</div>
+<div style='color: red;'>ERROR #20: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;1B&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;1B&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;200.000000&nbsp;|&nbsp;2B&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;300.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;400.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;500.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2C&nbsp;&nbsp;&nbsp;&nbsp;3A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_8">8</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;550.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2C&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_9">9</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;700.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_10">10</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;850.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_11">11</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;950.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_12">12</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1000.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_13">13</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1050.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;4B&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;6A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_14">14</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1250.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;4C&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;6A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_15">15</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1450.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;5B&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_16">16</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1850.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;6B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_17">17</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1950.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;6C&nbsp;&nbsp;&nbsp;&nbsp;6B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_18">18</td><td nowrap="nowrap">&nbsp;<span class="diff_chg">2</span>100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">6C&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">ex</span></td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;<span class="diff_chg">&nbsp;</span>100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_add">..&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_19">19</td><td nowrap="nowrap">&nbsp;2<span class="diff_chg">35</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap"><span class="diff_add">&nbsp;</span>&nbsp;2<span class="diff_chg">0</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_add">1B&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;400.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_6">6</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;500.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_7">7</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;700.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2C&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20Sou%C4%8Dasn%C3%A1%20v%C3%BDroba%20A%2C%20B%20a%20C&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-21%29%20%28test-21%29'>GitLab</a>.</p>
+<p id=test-22><b>Test 22: Současná výroba A, B a C, jiné pořadí příkazů</b> <small>(2 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-44'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-44' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make C </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Otakar ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Sofie svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Lucie lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Stepan sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Filip freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> EOF </td></tr>
+<tr><td style='text-align:right;'>   700.000000 </td><td> <span style='color: red; font-weight: bold'>!!!!!!! Deadlock detected at this time. !!!!!!!</span> </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-45'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-45' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Otakar goes home
+Sofie goes home
+Lucie goes home
+Stepan goes home
+Nora nuzky 1 A
+Nora goes home
+Vojta vrtacka 1 B
+Vojta vrtacka 2 A
+Filip freza 1 C
+Vojta vrtacka 2 C
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-46'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-46' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-47'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-47' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta Otakar Sofie Lucie Stepan Filip
+    0.000000 | ..   ..    ex     ex    ex    ex     ..
+  100.000000 | ex   ..    ex     ex    ex    ex     ..
+  200.000000 | ex   1B    ex     ex    ex    ex     ..
+  400.000000 | ex   2A    ex     ex    ex    ex     ..
+  500.000000 | ex   2A    ex     ex    ex    ex     1C
+  700.000000 | ex   2C    ex     ex    ex    ex     1C
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-48'><i class='fas'></i> Thread status (backtrace):</a>
+<div id='ae-output-48' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Main thread waits at:
+  #0  0x7f1e66331668: _end at ??:0
+  #1  0x7f1e66331c9c: _end at ??:0
+  #2  0x7f1e66336774: _end at ??:0
+  #3  0x4014dd: main at 06factory.cpp:351
+  #4  0x7f1e662cbca8: _end at ??:0
+  #5  0x7f1e662cbd65: _end at ??:0
+  #6  0x401581: _start at ??:0
+
+Nora exited
+
+Vojta waits at:
+  #0  0x7f1e66331668: _end at ??:0
+  #1  0x7f1e66331c9c: _end at ??:0
+  #2  0x7f1e66334158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f1e66334b7b: _end at ??:0
+  #5  0x7f1e663b25f0: _end at ??:0
+
+Otakar exited
+
+Sofie exited
+
+Lucie exited
+
+Stepan exited
+
+Filip waits at:
+  #0  0x7f1e66331668: _end at ??:0
+  #1  0x7f1e66331c9c: _end at ??:0
+  #2  0x7f1e66334158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f1e66334b7b: _end at ??:0
+  #5  0x7f1e663b25f0: _end at ??:0
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #21: Process didn&apos;t finish within timeout. Perhaps because of deadlock. For details see the thread status (backtrace) above.</div>
+<div style='color: red;'>ERROR #22: schedule does not match expected value</div>
+<div>Diff of expected and received schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;|&nbsp;Nora&nbsp;Vojta&nbsp;Otakar&nbsp;Sofie&nbsp;Lucie&nbsp;Stepan&nbsp;Filip</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;1A&nbsp;&nbsp;&nbsp;1B&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;&nbsp;0.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;100.000000&nbsp;|&nbsp;..&nbsp;&nbsp;&nbsp;1B&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;200.000000&nbsp;|&nbsp;2B&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;300.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;400.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;500.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2C&nbsp;&nbsp;&nbsp;&nbsp;3A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_8">8</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;550.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2C&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_9">9</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;700.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_10">10</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;850.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;3C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_11">11</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;&nbsp;950.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3B</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_12">12</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1000.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;5A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_13">13</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1050.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;4B&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;6A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_14">14</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1250.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;4C&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;6A&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_15">15</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1450.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;5B&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_16">16</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1850.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;6B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5C</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_17">17</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;1950.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;6C&nbsp;&nbsp;&nbsp;&nbsp;6B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_18">18</td><td nowrap="nowrap">&nbsp;<span class="diff_chg">2</span>100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">6C&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">ex</span></td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;<span class="diff_chg">&nbsp;</span>100.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_add">..&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_19">19</td><td nowrap="nowrap">&nbsp;2<span class="diff_chg">35</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_sub">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap"><span class="diff_add">&nbsp;</span>&nbsp;2<span class="diff_chg">0</span>0.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;<span class="diff_add">1B&nbsp;&nbsp;&nbsp;&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_add">&nbsp;</span>ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;<span class="diff_chg">&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;400.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_6">6</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;500.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2A&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_7">7</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;700.000000&nbsp;|&nbsp;ex&nbsp;&nbsp;&nbsp;2C&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;ex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1C</span></td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20Sou%C4%8Dasn%C3%A1%20v%C3%BDroba%20A%2C%20B%20a%20C%2C%20jin%C3%A9%20po%C5%99ad%C3%AD%20p%C5%99%C3%ADkaz%C5%AF&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-22%29%20%28test-22%29'>GitLab</a>.</p>
+<p id=test-23><b>Test 23: Dvě směny současně</b> <small>(2 pt)</small></p>
+<p>Running: <code>./factory</code></p>
+Pozor: Rozvrh dělníků není deterministický, ale co dělá celá továrna v daném čase (whole factory schedule) ano.
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-49'><i class='fas'></i> factory stdin:</a>
+<div id='ae-output-49' class='collapse show'>
+<table class='factory-stdin'><thead>
+<tr><td>   Time [ms]</td><td>Input</td></tr>
+</thead><tbody><tr><td style='text-align:right;'>     0.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> add freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Nora nuzky </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Vojta vrtacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Otakar ohybacka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Sofie svarecka </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Lucie lakovna </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Stepan sroubovak </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> start Filip freza </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>     0.000000 </td><td> make C </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> start Nick nuzky </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> start Vicky vrtacka </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> start Omar ohybacka </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> start Steve svarecka </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> start Lars lakovna </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> start Sven sroubovak </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> start Fred freza </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> make B </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> make C </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> add nuzky </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> add vrtacka </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> add ohybacka </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> add svarecka </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> add lakovna </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> add sroubovak </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> add freza </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> make A </td></tr>
+<tr><td style='text-align:right;'>   500.000000 </td><td> EOF </td></tr>
+<tr><td style='text-align:right;'>  1600.000000 </td><td> <span style='color: red; font-weight: bold'>!!!!!!! Deadlock detected at this time. !!!!!!!</span> </td></tr>
+</tbody></table>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-50'><i class='fas'></i> factory stdout:</a>
+<div id='ae-output-50' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Nora nuzky 1 A
+Vojta vrtacka 1 B
+Nora nuzky 2 B
+Vojta vrtacka 2 A
+Sofie goes home
+Omar goes home
+Steve goes home
+Filip freza 1 C
+Stepan goes home
+Sven goes home
+Otakar ohybacka 3 A
+Otakar goes home
+Nora nuzky 1 A
+Nora goes home
+Nick nuzky 1 A
+Nick goes home
+Vojta vrtacka 1 B
+Vicky vrtacka 2 C
+Vojta vrtacka 2 A
+Vicky vrtacka 2 A
+Filip freza 1 C
+Fred freza 3 B
+Vojta vrtacka 4 B
+Vicky vrtacka 2 C
+Lars lakovna 5 B
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-51'><i class='fas'></i> factory stderr:</a>
+<div id='ae-output-51' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-52'><i class='fas'></i> factory schedule:</a>
+<div id='ae-output-52' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+   Time [ms] | Nora Vojta Otakar Sofie Lucie Stepan Filip
+    0.000000 | ..   ..    ..     ..    ..    ..     ..
+  100.000000 | 1A   ..    ..     ..    ..    ..     ..
+  200.000000 | 1A   1B    ..     ..    ..    ..     ..
+  300.000000 | 2B   1B    ..     ..    ..    ..     ..
+  400.000000 | 2B   2A    ..     ..    ..    ..     ..
+             |                                            Nick Vicky Omar Steve Lars Sven Fred
+  500.000000 | 2B   2A    ..     ex    ..    ex     1C    ..   ..    ex   ex    ..   ex   ..
+  550.000000 | 2B   2A    ex     ex    ..    ex     1C    ..   ..    ex   ex    ..   ex   ..
+  600.000000 | ex   2A    ex     ex    ..    ex     1C    ex   ..    ex   ex    ..   ex   ..
+  700.000000 | ex   1B    ex     ex    ..    ex     1C    ex   2C    ex   ex    ..   ex   ..
+  900.000000 | ex   2A    ex     ex    ..    ex     1C    ex   2A    ex   ex    ..   ex   ..
+ 1000.000000 | ex   2A    ex     ex    ..    ex     1C    ex   2A    ex   ex    ..   ex   3B
+ 1200.000000 | ex   4B    ex     ex    ..    ex     1C    ex   2C    ex   ex    ..   ex   3B
+ 1600.000000 | ex   4B    ex     ex    ..    ex     1C    ex   2C    ex   ex    5B   ex   3B
+</pre>
+</div>
+</div>
+Schedule legend:
+<ul>
+<li><code>2A</code> – thread in sleep() after printing a message ending with &apos; 2 A&apos;
+<li><code>GH</code> – thread in sleep() after printing a &apos;goes home&apos; message
+<li><code>??</code> – thread in sleep() after an unexpected message
+<li><code>..</code> – thread waits
+<li><code>ex</code> – thread exited
+</ul>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-53'><i class='fas'></i> Thread status (backtrace):</a>
+<div id='ae-output-53' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Main thread waits at:
+  #0  0x7f3ee5bdc668: _end at ??:0
+  #1  0x7f3ee5bdcc9c: _end at ??:0
+  #2  0x7f3ee5be1774: _end at ??:0
+  #3  0x4014dd: main at 06factory.cpp:351
+  #4  0x7f3ee5b76ca8: _end at ??:0
+  #5  0x7f3ee5b76d65: _end at ??:0
+  #6  0x401581: _start at ??:0
+
+Nora exited
+
+Vojta waits at:
+  #0  0x7f3ee5bdc668: _end at ??:0
+  #1  0x7f3ee5bdcc9c: _end at ??:0
+  #2  0x7f3ee5bdf158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f3ee5bdfb7b: _end at ??:0
+  #5  0x7f3ee5c5d5f0: _end at ??:0
+
+Otakar exited
+
+Sofie exited
+
+Lucie waits at:
+  #0  0x7f3ee5bdc668: _end at ??:0
+  #1  0x7f3ee5bdcc9c: _end at ??:0
+  #2  0x7f3ee5bdf158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f3ee5bdfb7b: _end at ??:0
+  #5  0x7f3ee5c5d5f0: _end at ??:0
+
+Stepan exited
+
+Filip waits at:
+  #0  0x7f3ee5bdc668: _end at ??:0
+  #1  0x7f3ee5bdcc9c: _end at ??:0
+  #2  0x7f3ee5bdf158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f3ee5bdfb7b: _end at ??:0
+  #5  0x7f3ee5c5d5f0: _end at ??:0
+
+Nick exited
+
+Vicky waits at:
+  #0  0x7f3ee5bdc668: _end at ??:0
+  #1  0x7f3ee5bdcc9c: _end at ??:0
+  #2  0x7f3ee5bdf158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f3ee5bdfb7b: _end at ??:0
+  #5  0x7f3ee5c5d5f0: _end at ??:0
+
+Omar exited
+
+Steve exited
+
+Lars waits at:
+  #0  0x7f3ee5bdc668: _end at ??:0
+  #1  0x7f3ee5bdcc9c: _end at ??:0
+  #2  0x7f3ee5bdf158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f3ee5bdfb7b: _end at ??:0
+  #5  0x7f3ee5c5d5f0: _end at ??:0
+
+Sven exited
+
+Fred waits at:
+  #0  0x7f3ee5bdc668: _end at ??:0
+  #1  0x7f3ee5bdcc9c: _end at ??:0
+  #2  0x7f3ee5bdf158: _end at ??:0
+  #3  0x401a4d: worker_func(void*) at 06factory.cpp:162
+  #4  0x7f3ee5bdfb7b: _end at ??:0
+  #5  0x7f3ee5c5d5f0: _end at ??:0
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #23: Process didn&apos;t finish within timeout. Perhaps because of deadlock. For details see the thread status (backtrace) above.</div>
+<div style='color: red;'>ERROR #24: whole factory schedule does not match expected value</div>
+<div>Diff of expected and received whole factory schedule:
+
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">expected</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">received</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;&nbsp;|</td><td class="diff_next"><a href="#difflib_chg_to0__0">f</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap">&nbsp;&nbsp;Time&nbsp;[ms]&nbsp;&nbsp;|</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;0.000000&nbsp;&nbsp;|<span class="diff_sub">&nbsp;1A&nbsp;1B&nbsp;1C</span></td><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;0.000000&nbsp;&nbsp;|</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">&nbsp;100.000000&nbsp;&nbsp;|&nbsp;1<span class="diff_chg">B&nbsp;1C</span></td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">&nbsp;100.000000&nbsp;&nbsp;|&nbsp;1<span class="diff_chg">A</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">&nbsp;200.000000&nbsp;&nbsp;|&nbsp;1<span class="diff_sub">C&nbsp;2</span>A&nbsp;<span class="diff_chg">2</span>B</td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap">&nbsp;200.000000&nbsp;&nbsp;|&nbsp;1A&nbsp;<span class="diff_chg">1</span>B</td></tr>
+            <tr><td class="diff_next" id="difflib_chg_to0__1"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap">&nbsp;300.000000&nbsp;&nbsp;|&nbsp;1<span class="diff_chg">C</span>&nbsp;2<span class="diff_chg">A</span></td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap">&nbsp;300.000000&nbsp;&nbsp;|&nbsp;1<span class="diff_chg">B</span>&nbsp;2<span class="diff_chg">B</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap">&nbsp;400.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">1C&nbsp;3</span>A</td><td class="diff_next"></td><td class="diff_header" id="to0_6">6</td><td nowrap="nowrap">&nbsp;400.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">2</span>A<span class="diff_add">&nbsp;2B</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_7">7</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</td><td class="diff_next"></td><td class="diff_header" id="to0_7">7</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="from0_8">8</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;500.000000&nbsp;&nbsp;|&nbsp;1A&nbsp;1A&nbsp;1B&nbsp;1C&nbsp;2C&nbsp;3A&nbsp;3B</span></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_9">9</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;550.000000&nbsp;&nbsp;|&nbsp;1A&nbsp;1A&nbsp;1B&nbsp;1C&nbsp;2C&nbsp;3B&nbsp;4A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_10">10</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;600.000000&nbsp;&nbsp;|&nbsp;1B&nbsp;1C&nbsp;2C&nbsp;3B&nbsp;4A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_11">11</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;700.000000&nbsp;&nbsp;|&nbsp;1C&nbsp;2A&nbsp;2A&nbsp;2B&nbsp;3B&nbsp;3C&nbsp;4A</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_12">12</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;800.000000&nbsp;&nbsp;|&nbsp;1C&nbsp;2A&nbsp;2A&nbsp;3B&nbsp;3C&nbsp;4A&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_13">13</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;850.000000&nbsp;&nbsp;|&nbsp;1C&nbsp;2A&nbsp;2A&nbsp;3B&nbsp;3C&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_14">14</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;900.000000&nbsp;&nbsp;|&nbsp;1C&nbsp;3A&nbsp;3A&nbsp;3B&nbsp;3C&nbsp;5A&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_15">15</td><td nowrap="nowrap"><span class="diff_sub">&nbsp;950.000000&nbsp;&nbsp;|&nbsp;1C&nbsp;3A&nbsp;3A&nbsp;3B&nbsp;4C&nbsp;5A&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_16">16</td><td nowrap="nowrap"><span class="diff_sub">1000.000000&nbsp;&nbsp;|&nbsp;3A&nbsp;3A&nbsp;3B&nbsp;4C&nbsp;5A&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_17">17</td><td nowrap="nowrap"><span class="diff_sub">1050.000000&nbsp;&nbsp;|&nbsp;3B&nbsp;4A&nbsp;4A&nbsp;4C&nbsp;5A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_18">18</td><td nowrap="nowrap"><span class="diff_sub">1100.000000&nbsp;&nbsp;|&nbsp;3B&nbsp;4A&nbsp;4A&nbsp;4B&nbsp;4C&nbsp;6A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_19">19</td><td nowrap="nowrap"><span class="diff_sub">1150.000000&nbsp;&nbsp;|&nbsp;2C&nbsp;3B&nbsp;4A&nbsp;4A&nbsp;4B&nbsp;5C&nbsp;6A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_20">20</td><td nowrap="nowrap"><span class="diff_sub">1300.000000&nbsp;&nbsp;|&nbsp;2C&nbsp;3B&nbsp;4A&nbsp;4A&nbsp;5B&nbsp;5C&nbsp;6A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_21">21</td><td nowrap="nowrap"><span class="diff_sub">1350.000000&nbsp;&nbsp;|&nbsp;3B&nbsp;3C&nbsp;5A&nbsp;5A&nbsp;5B&nbsp;5C&nbsp;6A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_22">22</td><td nowrap="nowrap"><span class="diff_chg">1</span>500.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">3</span>C&nbsp;<span class="diff_chg">5</span>A&nbsp;<span class="diff_chg">5A&nbsp;5</span>B<span class="diff_sub">&nbsp;5C</span>&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex<span class="diff_sub">&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header" id="to0_8">8</td><td nowrap="nowrap"><span class="diff_chg">&nbsp;</span>500.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">1</span>C&nbsp;<span class="diff_chg">2</span>A&nbsp;<span class="diff_chg">2</span>B&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_23">23</td><td nowrap="nowrap"><span class="diff_sub">1550.000000&nbsp;&nbsp;|&nbsp;3C&nbsp;4B&nbsp;5B&nbsp;5C&nbsp;6A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_24">24</td><td nowrap="nowrap"><span class="diff_sub">1600.000000&nbsp;&nbsp;|&nbsp;4B&nbsp;4C&nbsp;5B&nbsp;5C&nbsp;6A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_25">25</td><td nowrap="nowrap"><span class="diff_sub">1650.000000&nbsp;&nbsp;|&nbsp;4B&nbsp;4C&nbsp;5B&nbsp;6A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_26">26</td><td nowrap="nowrap"><span class="diff_sub">1700.000000&nbsp;&nbsp;|&nbsp;4B&nbsp;4C&nbsp;6A&nbsp;6A&nbsp;6B&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_27">27</td><td nowrap="nowrap"><span class="diff_chg">17</span>50.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">4</span>C&nbsp;<span class="diff_chg">6</span>A&nbsp;<span class="diff_chg">6A&nbsp;6</span>B&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_9">9</td><td nowrap="nowrap"><span class="diff_chg">&nbsp;5</span>50.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">1</span>C&nbsp;<span class="diff_chg">2</span>A&nbsp;<span class="diff_chg">2</span>B&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_10">10</td><td nowrap="nowrap"><span class="diff_add">&nbsp;600.000000&nbsp;&nbsp;|&nbsp;1C&nbsp;2A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_11">11</td><td nowrap="nowrap"><span class="diff_add">&nbsp;700.000000&nbsp;&nbsp;|&nbsp;1B&nbsp;1C&nbsp;2C&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_12">12</td><td nowrap="nowrap"><span class="diff_add">&nbsp;900.000000&nbsp;&nbsp;|&nbsp;1C&nbsp;2A&nbsp;2A&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_28">28</td><td nowrap="nowrap">1<span class="diff_chg">8</span>00.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">5</span>C&nbsp;<span class="diff_chg">6</span>A&nbsp;<span class="diff_chg">6</span>A&nbsp;<span class="diff_chg">6</span>B&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_13">13</td><td nowrap="nowrap">1<span class="diff_chg">0</span>00.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">1</span>C&nbsp;<span class="diff_chg">2</span>A&nbsp;<span class="diff_chg">2</span>A&nbsp;<span class="diff_chg">3</span>B&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_29">29</td><td nowrap="nowrap">1<span class="diff_chg">95</span>0.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">5</span>C&nbsp;<span class="diff_chg">6A&nbsp;6</span>C&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_14">14</td><td nowrap="nowrap">1<span class="diff_chg">20</span>0.000000&nbsp;&nbsp;|&nbsp;<span class="diff_chg">1</span>C&nbsp;<span class="diff_chg">2</span>C<span class="diff_add">&nbsp;3B&nbsp;4B</span>&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_30">30</td><td nowrap="nowrap"><span class="diff_sub">2</span>100.000000&nbsp;&nbsp;|&nbsp;5B&nbsp;<span class="diff_sub">5C&nbsp;6C&nbsp;</span>ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td><td class="diff_next"></td><td class="diff_header" id="to0_15">15</td><td nowrap="nowrap">1<span class="diff_add">6</span>00.000000&nbsp;&nbsp;|<span class="diff_add">&nbsp;1C&nbsp;2C&nbsp;3B&nbsp;4B</span>&nbsp;5B&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_31">31</td><td nowrap="nowrap"><span class="diff_sub">2300.000000&nbsp;&nbsp;|&nbsp;5B&nbsp;6C&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_32">32</td><td nowrap="nowrap"><span class="diff_sub">2350.000000&nbsp;&nbsp;|&nbsp;5B&nbsp;6C&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_33">33</td><td nowrap="nowrap"><span class="diff_sub">2500.000000&nbsp;&nbsp;|&nbsp;6B&nbsp;6C&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_34">34</td><td nowrap="nowrap"><span class="diff_sub">2750.000000&nbsp;&nbsp;|&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex&nbsp;ex</span></td><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td></tr>
+        </tbody>
+    </table></div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20Dv%C4%9B%20sm%C4%9Bny%20sou%C4%8Dasn%C4%9B&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-23%29%20%28test-23%29'>GitLab</a>.</p>
+<p id=test-24><b>Test 24: Současná výroba A, B a C + thread sanitizer</b> <small>(1 pt)</small></p>
+<p>Running: <code>./factory.tsan </code></p>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-54'><i class='fas'></i> Command&apos;s stderr:</a>
+<div id='ae-output-54' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #25: Command didn&apos;t finish within timeout of 10 seconds</div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20Sou%C4%8Dasn%C3%A1%20v%C3%BDroba%20A%2C%20B%20a%20C%20%2B%20thread%20sanitizer&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-24%29%20%28test-24%29'>GitLab</a>.</p>
+<p id=test-25><b>Test 25: Současná výroba A, B a C + valgrind</b> <small>(1 pt)</small></p>
+<p>Running: <code>valgrind --error-exitcode=111 --leak-check=full --track-origins=yes ./factory</code></p>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-55'><i class='fas'></i> stdout:</a>
+<div id='ae-output-55' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+Lucie goes home
+Sofie goes home
+Stepan goes home
+Otakar goes home
+Nora nuzky 1 A
+Nora goes home
+Vojta vrtacka 1 B
+Vojta vrtacka 2 A
+Filip freza 1 C
+Vojta vrtacka 2 C
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-56'><i class='fas'></i> stderr:</a>
+<div id='ae-output-56' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+
+</pre>
+</div>
+</div>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-57'><i class='fas'></i> memory leak and uninitialized memory report:</a>
+<div id='ae-output-57' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+==2665== Memcheck, a memory error detector
+==2665== Copyright (C) 2002-2024, and GNU GPL&apos;d, by Julian Seward et al.
+==2665== Using Valgrind-3.24.0 and LibVEX; rerun with -h for copyright info
+==2665== Command: ./factory
+==2665== Parent PID: 2664
+==2665== 
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #26: Not finished within timeout of 20s</div>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20Sou%C4%8Dasn%C3%A1%20v%C3%BDroba%20A%2C%20B%20a%20C%20%2B%20valgrind&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-25%29%20%28test-25%29'>GitLab</a>.</p>
+<p id=test-26><b>Test 26: Příchod a odchod + thread sanitizer</b> <small>(2 pt)</small></p>
+<p>Running: <code>(echo &apos;start Nora nuzky&apos;; echo &apos;end Nora&apos;) | ./factory.tsan</code></p>
+<div>
+<a class='text-dark' data-toggle='collapse' href='#ae-output-58'><i class='fas'></i> Command&apos;s stderr:</a>
+<div id='ae-output-58' class='collapse show'>
+<pre style='border: 1px solid gray; background-color:silver; padding: 3px 0 3px 0;'>
+==================
+WARNING: ThreadSanitizer: thread leak (pid=2749)
+  Thread T1 (tid=2751, finished) created by main thread at:
+    #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1022 (libtsan.so.2+0x568a6) (BuildId: 99ef88596cb10a8ccf307fe1a9070f66a44b1624)
+    #1 start_worker(char*, place) /local/data/06factory.cpp:241 (factory.tsan+0x40226d) (BuildId: 483ab39fa5a8f97b8be08609ae4c2b877abb3163)
+    #2 main /local/data/06factory.cpp:292 (factory.tsan+0x401765) (BuildId: 483ab39fa5a8f97b8be08609ae4c2b877abb3163)
+
+SUMMARY: ThreadSanitizer: thread leak /local/data/06factory.cpp:241 in start_worker(char*, place)
+==================
+ThreadSanitizer: reported 1 warnings
+</pre>
+</div>
+</div>
+<div style='color: red;'>ERROR #27: Command&apos;s exit code is 66, expecting 0</div>
+<p>NOTE: Exit code 66 is caused by thread sanitizer errors.</p>
+<p>Running: <code>(echo &apos;start Nora nuzky&apos;; sleep 0.1; echo &apos;end Nora&apos;) | ./factory.tsan</code></p>
+<div style='color: red;'>ERROR #28: Command&apos;s exit code is 66, expecting 0</div>
+<p>NOTE: Exit code 66 is caused by thread sanitizer errors.</p>
+<p>Not clear why this happens? Ask via <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%3A%20Test%3A%20P%C5%99%C3%ADchod%20a%20odchod%20%2B%20thread%20sanitizer&issue[description]=What%27s%20your%20question%3F%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%23test-26%29%20%28test-26%29'>GitLab</a>.</p>
+<hr>
+<p style='color: red;'>Unacceptable solution due to too many (28) errors. The solution must get at least 0 points.</p>
+<p>Total score: -9 out of 12</p>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<p style='color:red'>Detected problems with your solution. If you don't understand why, <a href='https://gitlab.fel.cvut.cz/osy/osy.pages.fel.cvut.cz/-/issues/new?issue[title]=BRUTE%20AE%3A%2006factory%20question&issue[description]=%0A%0A%5BMy%20AE%20results%5D%28https%3A%2F%2Fcw.felk.cvut.cz%2Fbrute%2Fdata%2Fae%2Frelease%2F2025z_b4b35osy%2F06factory%2Fcviceni%2F06factory%2Fae%2Fphp%2Ffactory.php%3F%26idg%3Dbobenade%26idu%3D13618%26upload%3D2057370%26result%3D1545964%29%20%28%29'>ask us via Gitlab</a>.</p>
+</body></html>
+<!-- priting student_table_func -->
+<h3>Lines of code comparison</h3>
+<p>Lines of code are calculated using <a href='https://clang.llvm.org/docs/ClangFormat.html'>clang-format</a>
+and <a href='https://github.com/XAMPPRocky/tokei'>tokei</a>. Comments and blank lines are ignored.</p><table class='table table-sm' style='width: auto;' id=summary-table>
+<thead><tr><th>#</th>
+<th scope=col ><a href='?sort_by=student&rev=0&idg=bobenade&idu=13618#summary-table'>Student<br>(anonymized)</a></th>
+<th scope=col class=table-active><a href='?sort_by=loc%E2%86%91&rev=1&idg=bobenade&idu=13618#summary-table'>Lines of code↑</a></th>
+<th scope=col ><a href='?sort_by=points&rev=0&idg=bobenade&idu=13618#summary-table'>Points</a></th>
+<th scope=col ><a href='?sort_by=proglang&rev=0&idg=bobenade&idu=13618#summary-table'>Language</a></th>
+</tr></thead>
+<tbody>
+<tr><td>1.</td><td>q/P580S/</td><td class=table-active>211</td><td>12.0</td><td>C</td></tr>
+<tr><td>2.</td><td>sLWPW7v4</td><td class=table-active>231</td><td>0.0</td><td>C++</td></tr>
+<tr><td>3.</td><td>2Sbo7nlQ</td><td class=table-active>242</td><td>9.0</td><td>C</td></tr>
+<tr><td>4.</td><td>gt4iX8Ka</td><td class=table-active>249</td><td>12.0</td><td>C++</td></tr>
+<tr><td>5.</td><td>88OqykrN</td><td class=table-active>255</td><td>12.0</td><td>C</td></tr>
+<tr><td>6.</td><td>diW1uzqP</td><td class=table-active>258</td><td>12.0</td><td>C++</td></tr>
+<tr><td>7.</td><td>fLxquxVP</td><td class=table-active>272</td><td>12.0</td><td>C++</td></tr>
+<tr><td>8.</td><td>9Fu8oNjA</td><td class=table-active>272</td><td>3.0</td><td>C</td></tr>
+<tr><td>9.</td><td>hzNXs44f</td><td class=table-active>272</td><td>12.0</td><td>C++</td></tr>
+<tr><td>10.</td><td>dmRmfy/m</td><td class=table-active>274</td><td>11.0</td><td>C</td></tr>
+<tr><td>11.</td><td>GyV6ZguY</td><td class=table-active>276</td><td>10.0</td><td>C</td></tr>
+<tr><td>12.</td><td>+/BY9Y0l</td><td class=table-active>276</td><td>11.0</td><td>C</td></tr>
+<tr><td>13.</td><td>oSDJMpLY</td><td class=table-active>284</td><td>9.0</td><td>C</td></tr>
+<tr><td>14.</td><td>C6HFtBH/</td><td class=table-active>290</td><td>10.0</td><td>C++</td></tr>
+<tr><td>15.</td><td>PxJhWi0e</td><td class=table-active>290</td><td>7.0</td><td>C</td></tr>
+<tr><td>16.</td><td>6DFgKU0O</td><td class=table-active>296</td><td>11.0</td><td>C++</td></tr>
+<tr><td>17.</td><td>NnbnH8+Q</td><td class=table-active>297</td><td>12.0</td><td>C++</td></tr>
+<tr><td>18.</td><td>KRWIUI/k</td><td class=table-active>298</td><td>9.0</td><td>C++</td></tr>
+<tr><td>19.</td><td>J4KvsPaQ</td><td class=table-active>298</td><td>11.0</td><td>C</td></tr>
+<tr><td>20.</td><td>1E8GudPn</td><td class=table-active>299</td><td>8.0</td><td>C</td></tr>
+<tr><td>21.</td><td>rPOLcU3o</td><td class=table-active>299</td><td>10.0</td><td>C</td></tr>
+<tr><td>22.</td><td>+M3ZE1T8</td><td class=table-active>300</td><td>12.0</td><td>C</td></tr>
+<tr><td>23.</td><td>2zGLZLIR</td><td class=table-active>301</td><td>12.0</td><td>C</td></tr>
+<tr><td>24.</td><td>ZIjLBADq</td><td class=table-active>306</td><td>0.0</td><td>C</td></tr>
+<tr><td>25.</td><td>PihJl+l+</td><td class=table-active>308</td><td>12.0</td><td>C++</td></tr>
+<tr><td>26.</td><td>yzqF70QG</td><td class=table-active>309</td><td>12.0</td><td>C</td></tr>
+<tr><td>27.</td><td>qOmfJQB0</td><td class=table-active>310</td><td>11.0</td><td>C</td></tr>
+<tr><td>28.</td><td>d8NNaAvX</td><td class=table-active>310</td><td>12.0</td><td>C++</td></tr>
+<tr><td>29.</td><td>bp4XEn+f</td><td class=table-active>312</td><td>11.0</td><td>C</td></tr>
+<tr><td>30.</td><td>QInH36vl</td><td class=table-active>313</td><td>12.0</td><td>C</td></tr>
+<tr><td>31.</td><td>SsYJR122</td><td class=table-active>313</td><td>9.0</td><td>C++</td></tr>
+<tr class="table-primary"><td>32.</td><td><b>bobenade</b></td><td class=table-active>314</td><td>-9.0</td><td>C++</td></tr>
+<tr><td>33.</td><td>SFLCCxCg</td><td class=table-active>314</td><td>12.0</td><td>C++</td></tr>
+<tr><td>34.</td><td>WQ9y4RlG</td><td class=table-active>314</td><td>12.0</td><td>C++</td></tr>
+<tr><td>35.</td><td>BvBQCyMx</td><td class=table-active>317</td><td>9.0</td><td>C</td></tr>
+<tr><td>36.</td><td>Z0ugKl3/</td><td class=table-active>319</td><td>12.0</td><td>C++</td></tr>
+<tr><td>37.</td><td>ZBUdRaEW</td><td class=table-active>320</td><td>12.0</td><td>C++</td></tr>
+<tr><td>38.</td><td>NiX4pG8u</td><td class=table-active>320</td><td>12.0</td><td>C</td></tr>
+<tr><td>39.</td><td>XcvT4WdL</td><td class=table-active>322</td><td>12.0</td><td>C</td></tr>
+<tr><td>40.</td><td>Gj0XkOqX</td><td class=table-active>322</td><td>12.0</td><td>C++</td></tr>
+<tr><td>41.</td><td>OmfB1IuU</td><td class=table-active>326</td><td>10.0</td><td>C</td></tr>
+<tr><td>42.</td><td>ZDURfmda</td><td class=table-active>327</td><td>12.0</td><td>C++</td></tr>
+<tr><td>43.</td><td>dVDw7a2g</td><td class=table-active>329</td><td>4.0</td><td>C</td></tr>
+<tr><td>44.</td><td>pwnsiS1f</td><td class=table-active>331</td><td>12.0</td><td>C++</td></tr>
+<tr><td>45.</td><td>YxHcRScC</td><td class=table-active>334</td><td>8.0</td><td>C++</td></tr>
+<tr><td>46.</td><td>3w5DkWGT</td><td class=table-active>335</td><td>0.0</td><td>C</td></tr>
+<tr><td>47.</td><td>+hfpvmeN</td><td class=table-active>338</td><td>12.0</td><td>C++</td></tr>
+<tr><td>48.</td><td>ktAKtfUX</td><td class=table-active>338</td><td>2.0</td><td>C</td></tr>
+<tr><td>49.</td><td>63u473QL</td><td class=table-active>339</td><td>12.0</td><td>C</td></tr>
+<tr><td>50.</td><td>SVtNxCjk</td><td class=table-active>342</td><td>4.0</td><td>C</td></tr>
+<tr><td>51.</td><td>GUMY/VRN</td><td class=table-active>343</td><td>12.0</td><td>C</td></tr>
+<tr><td>52.</td><td>oyNcoMLH</td><td class=table-active>344</td><td>12.0</td><td>C</td></tr>
+<tr><td>53.</td><td>Tg1Qc8gN</td><td class=table-active>344</td><td>12.0</td><td>C++</td></tr>
+<tr><td>54.</td><td>oIC6lV9i</td><td class=table-active>347</td><td>11.0</td><td>C</td></tr>
+<tr><td>55.</td><td>TEuJFWp2</td><td class=table-active>348</td><td>12.0</td><td>C++</td></tr>
+<tr><td>56.</td><td>vSH/2BX6</td><td class=table-active>348</td><td>12.0</td><td>C++</td></tr>
+<tr><td>57.</td><td>lB0UZOLv</td><td class=table-active>350</td><td>9.0</td><td>C</td></tr>
+<tr><td>58.</td><td>o6qm6vsH</td><td class=table-active>351</td><td>12.0</td><td>C++</td></tr>
+<tr><td>59.</td><td>qk9vI3Ql</td><td class=table-active>352</td><td>8.0</td><td>C++</td></tr>
+<tr><td>60.</td><td>BSGSF8KX</td><td class=table-active>354</td><td>12.0</td><td>C</td></tr>
+<tr><td>61.</td><td>1U30+Yrw</td><td class=table-active>354</td><td>12.0</td><td>C++</td></tr>
+<tr><td>62.</td><td>1A6/DKRO</td><td class=table-active>357</td><td>5.0</td><td>C</td></tr>
+<tr><td>63.</td><td>/QsBfltD</td><td class=table-active>358</td><td>10.0</td><td>C++</td></tr>
+<tr><td>64.</td><td>pb0bYIGh</td><td class=table-active>359</td><td>12.0</td><td>C</td></tr>
+<tr><td>65.</td><td>Qel4yPH5</td><td class=table-active>361</td><td>12.0</td><td>C</td></tr>
+<tr><td>66.</td><td>7H63emdI</td><td class=table-active>362</td><td>9.0</td><td>C</td></tr>
+<tr><td>67.</td><td>1D4M+Ukf</td><td class=table-active>364</td><td>12.0</td><td>C++</td></tr>
+<tr><td>68.</td><td>TqvQo4bG</td><td class=table-active>365</td><td>7.0</td><td>C</td></tr>
+<tr><td>69.</td><td>dqC9sQFo</td><td class=table-active>369</td><td>9.0</td><td>C</td></tr>
+<tr><td>70.</td><td>SxQFhu22</td><td class=table-active>371</td><td>9.0</td><td>C</td></tr>
+<tr><td>71.</td><td>nSXHocyu</td><td class=table-active>373</td><td>12.0</td><td>C</td></tr>
+<tr><td>72.</td><td>CysUpVv3</td><td class=table-active>373</td><td>11.0</td><td>C</td></tr>
+<tr><td>73.</td><td>4jWU8SBu</td><td class=table-active>373</td><td>11.0</td><td>Rust</td></tr>
+<tr><td>74.</td><td>tNYa3irx</td><td class=table-active>384</td><td>12.0</td><td>C</td></tr>
+<tr><td>75.</td><td>Y+a02gDq</td><td class=table-active>389</td><td>3.0</td><td>C</td></tr>
+<tr><td>76.</td><td>kQszx2TJ</td><td class=table-active>392</td><td>8.0</td><td>C</td></tr>
+<tr><td>77.</td><td>MuRN2T+i</td><td class=table-active>392</td><td>12.0</td><td>C</td></tr>
+<tr><td>78.</td><td>NZxWR57u</td><td class=table-active>402</td><td>7.0</td><td>C</td></tr>
+<tr><td>79.</td><td>0CzdxZeJ</td><td class=table-active>411</td><td>12.0</td><td>C</td></tr>
+<tr><td>80.</td><td>S5D6ZLVq</td><td class=table-active>419</td><td>9.0</td><td>C</td></tr>
+<tr><td>81.</td><td>DemHwv4a</td><td class=table-active>421</td><td>11.0</td><td>Rust</td></tr>
+<tr><td>82.</td><td>RxkrPnf2</td><td class=table-active>426</td><td>9.0</td><td>C++</td></tr>
+<tr><td>83.</td><td>XUhphaaP</td><td class=table-active>439</td><td>9.0</td><td>Rust</td></tr>
+<tr><td>84.</td><td>2HxndKZs</td><td class=table-active>445</td><td>12.0</td><td>C</td></tr>
+<tr><td>85.</td><td>J9pbX8EM</td><td class=table-active>479</td><td>6.0</td><td>C</td></tr>
+<tr><td>86.</td><td>vISUVhYk</td><td class=table-active>492</td><td>12.0</td><td>C</td></tr>
+<tr><td>87.</td><td>egUSt0jz</td><td class=table-active>500</td><td>6.0</td><td>C</td></tr>
+<tr><td>88.</td><td>wXzg5UK2</td><td class=table-active>522</td><td>12.0</td><td>C++</td></tr>
+<tr><td>89.</td><td>04tLrmKv</td><td class=table-active>589</td><td>12.0</td><td>C</td></tr>
+<tr><td>90.</td><td>12//0gW7</td><td class=table-active>591</td><td>12.0</td><td>Rust</td></tr>
+<tr><td>91.</td><td>CTahXy4j</td><td class=table-active>606</td><td>12.0</td><td>C++</td></tr>
+<tr><td>92.</td><td>n/uB+jqz</td><td class=table-active>658</td><td>4.0</td><td>C</td></tr>
+<tr><td>93.</td><td>Dshn6m3B</td><td class=table-active>665</td><td>12.0</td><td>C</td></tr>
+<tr><td>94.</td><td>i5bplj5a</td><td class=table-active>737</td><td>4.0</td><td>C</td></tr>
+</tbody></table>
