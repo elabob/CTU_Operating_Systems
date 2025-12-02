@@ -1,0 +1,25 @@
+Cieľ: Sprevádzkovať dynamickú správu pamäte v systéme NOVA na úrovni aplikácie aj operačného systému.
+
+1) Implementácia malloc a free (User Space):
+
+        V súbore mem_alloc.c vytvorím vlastný správcu pamäte.
+
+        Použijem linked list na evidenciu voľných a obsadených blokov.
+
+        Pre malloc zvolím stratégiu First-Fit: nájdem prvý dostatočne veľký voľný blok. Ak taký nie je, požiadam systém o zväčšenie  
+        heapu pomocou volania nbrk.
+
+        Pre free zabezpečím spájanie blokov (coalescing), aby sa mi pamäť neštiepila na malé kúsky.
+
+
+2) Obsluha systémového volania (Kernel Space):
+
+        V súbore ec_syscall.cc doprogramujem obsluhu pre syscall č. 3 (sys_nbrk).
+
+        Rast heapu: Keď aplikácia požiada o viac pamäte, musím alokovať fyzické stránky (Kalloc) a namapovať ich do virtuálnej 
+        pamäte (Ptab).
+
+        Zmenšovanie heapu: Keď aplikácia pamäť vráti, musím stránky odmapovať a vrátiť systému.
+
+        Bezpečnosť: Musím ošetriť chybové stavy (ak dôjde RAM, vrátim zmeny späť – rollback) a novú pamäť poctivo vynulovať 
+        (memset), aby v nej neostali citlivé dáta.
